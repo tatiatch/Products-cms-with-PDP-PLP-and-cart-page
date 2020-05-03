@@ -1,0 +1,26 @@
+Create form
+<form method="post" action="<?= $this->product && $this->product['id'] ? '' : '/'.$GLOBALS['project_root_folder'].'/admin/products'?>" enctype="multipart/form-data">
+    <div class="field">
+        <span>Title</span>
+        <input type="text" id="name" name="name" value="<?= $this->product && $this->product['id'] ? $this->product['name'] : ''?>"/>
+    </div>
+    <div class="field">
+        <span>Description</span>
+        <textarea id="description" name="description" rows="4" cols="50"><?= $this->product && $this->product['id'] ? $this->product['description'] : ''?></textarea>
+    </div>
+    <div class="field">
+        <span>Price</span>
+        <input type="number" step="0.01" id="price" name="price" min="0" value="<?= $this->product && $this->product['id'] ? $this->product['price'] : ''?>" />
+    </div>
+    <div class="field">
+        <span>Image</span>
+        <input type="file" id="image" name="image" />
+    </div>
+    <button type="submit" id="submit" name="submit">Save</button>
+</form>
+<?php if ($this->product && $this->product['id']) : ?>
+    <form method="post" action="<?= $this->product['id'] . '/delete'?>">
+        <button type="submit" name="submit">Delete</button>
+    </form>
+<?php endif; ?>
+<script src="../../app/views/admin/products/js/validation.js"></script>

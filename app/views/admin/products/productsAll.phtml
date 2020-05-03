@@ -1,0 +1,25 @@
+<?php foreach ($this->products as $product) : ?>
+    <div class="product-card">
+        <div class="product-card-name">
+            <span>name: </span>
+            <span><?= $product->name; ?></span>
+        </div>
+        <div class="product-card-description">
+            <span>description: </span>
+            <span><?= $product->description; ?></span>
+        </div>
+        <div class="product-card-price">
+            <span>price: </span>
+            <span><?= $product->price; ?></span>
+        </div>
+        <div class="product-card-image">
+            <span>image: </span>
+            <img src="<?= $product->image ?>">
+        </div>
+        <div class="product-card-edit">
+            <a href="products/<?= $product->id; ?>">Edit product</a>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<a href="products/create">Create new product</a>
